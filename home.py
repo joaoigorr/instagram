@@ -9,7 +9,7 @@ df = pd.read_excel('date_pages.xlsx')
 st.header('Rivalidade no Cenário de Páginas de CS.')
 hour_att = df['date'].max()
 hora_atual = datetime.today()
-next_att = hour_att + pd.Timedelta(hours=1)
+next_att = hour_att + pd.Timedelta(hours=12)
 
 if next_att < hora_atual:
     new_data()
