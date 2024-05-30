@@ -8,7 +8,7 @@ def get_data_instagram(account):
     querystring = {"account":account}
 
     headers = {
-	"x-rapidapi-key": "796a4a0384msh585e39c01965b88p149ce1jsnf254eb11a77d",
+	"x-rapidapi-key": "",
 	"x-rapidapi-host": "ig-public-info.p.rapidapi.com"
 }
 
