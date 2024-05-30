@@ -1,18 +1,17 @@
 import pandas as pd
 import streamlit as  st
-#import plotly.express as px
-from datetime import datetime, timedelta
-from data_pages import new_data
+from datetime import datetime
+from data_pages import new_data_v2
 
 #Titulo
 df = pd.read_excel('date_pages.xlsx')
 st.header('Rivalidade no Cenário de Páginas de CS.')
 hour_att = df['date'].max()
 hora_atual = datetime.today()
-next_att = hour_att + pd.Timedelta(hours=12)
+next_att = hour_att + pd.Timedelta(hours=6)
 
 if next_att < hora_atual:
-    new_data()
+    new_data_v2()
 else:
     pass
 
