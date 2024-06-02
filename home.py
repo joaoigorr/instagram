@@ -36,6 +36,5 @@ st.plotly_chart(fig_total)
 #Grafico de linha
 st.subheader('Evolução no tempo.')
 df_line = df[['date','followers','username']]
+df_line = df_line.sort_values(by='date',ascending=False)
 st.line_chart(df_line, x='date', y='followers', color='username')
-
-
