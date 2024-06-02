@@ -17,7 +17,8 @@ if next_att < hora_atual:
 else:
     pass
 
-st.text(f'Atualizado em: {hour_att}')
+hour_att_new = hour_att.strftime("%d/%m/%Y, %H:%M")
+st.text(f'Atualizado em: {hour_att_new}')
 
 #Grafico de barras
 df_atual = df.sort_values(by='date')
