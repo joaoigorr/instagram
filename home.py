@@ -1,7 +1,9 @@
+#%%
 import pandas as pd
 import streamlit as  st
 from datetime import datetime
-from data_pages import new_data_v2
+from data_pages import new_data_v2, new_data
+import plotly.express as px
 
 #Titulo
 df = pd.read_excel('date_pages.xlsx')
@@ -18,12 +20,18 @@ else:
 st.text(f'Atualizado em: {hour_att}')
 
 #Grafico de barras
-df_atual = df.sort_values(by='date', ascending=False).tail(6)
-st.bar_chart(df_atual.sort_values('followers'), x='username', y='followers')
+df_atual = df.sort_values(by='date')
+df_atual = df_atual.tail(6)
 
-#fig_total.update_traces(textfont_size=12, textangle=0, cliponaxis=False)
+#st.bar_chart(df_atual.sort_values('followers'), x='username', y='followers')
 
-#st.plotly_chart(fig_total)
+fig_total = px.bar(df_atual.sort_values("followers"), x='followers',y='username', 
+                       title='Total seguidoress',
+                        orientation='h',text_auto=True
+                          )
+fig_total.update_traces(textfont_size=12, textangle=0, cliponaxis=False)
+
+st.plotly_chart(fig_total)
 
 #Grafico de linha
 st.subheader('Evolução no tempo.')
